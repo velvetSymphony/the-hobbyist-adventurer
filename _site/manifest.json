@@ -1,0 +1,17 @@
+{
+  "lang": "en-GB",
+  "name": "Hobbyist Adventurer",
+  "short_name": "HobbyistAdventurer",
+  "theme_color": "#24292e",
+  "background_color": "#ffffff",
+  
+    "icons": [
+      
+        {
+          "src": "/assets/favicon.ico",
+          "sizes": "16x16"
+        }
+      
+    ],"start_url": "/",
+  "display": "standalone"
+}

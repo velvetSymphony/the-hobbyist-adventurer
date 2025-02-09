@@ -1,0 +1,148 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+#title: Your awesome title
+# description: >- # this means to ignore newlines until "baseurl:"
+#Write an awesome description for your new site here. You can edit this
+# line in _config.yml. It will appear in your document head meta (for
+# Google search results) and in your feed.xml site description.
+  #baseurl: "" # the subpath of your site, e.g. /blog
+  #url: "" # the base hostname & protocol for your site, e.g. http://example.com
+  #twitter_username: jekyllrb
+  #github_username:  jekyll
+
+# Build settings
+theme: alembic-jekyll-theme
+
+# 1. Files excluded from Jekyll builds
+exclude:
+- README.md
+- CODE_OF_CONDUCT.md
+- CONTRIBUTING.md
+- screenshot.png
+- LICENSE
+- CNAME
+- Gemfile
+- Gemfile.lock
+- alembic-jekyll-theme.gemspec
+- .jekyll-cache
+
+# 2. Installed Gems
+plugins:
+- jekyll-sitemap
+- jekyll-mentions
+- jekyll-paginate
+- jekyll-seo-tag
+- jekyll-redirect-from
+- jekyll-feed
+- jekyll-commonmark
+- jekyll-include-cache
+- jemoji
+
+# 3. Gem settings
+paginate: 2 # jekyll-paginate > items per page
+paginate_path: blog/page:num # jekyll-paginate > blog page
+jekyll-mentions: https://github.com # jekyll-mentions > service used when @replying
+author: Abhishek # jekyll-seo-tag > default author
+# markdown: CommonMark # Markdown parse settings, CommonMark performs slightly better an others in build time
+# commonmark:
+  # options: ["SMART", "FOOTNOTES"]
+  # extensions: ["strikethrough", "autolink", "table"]
+
+# 4. Jekyll settings
+sass:
+  style: compressed # Style compression
+permalink: pretty  # Permalink style (/YYYY/MM/DD/page-name/)
+excerpt_separator: <!-- more --> # Marks end of excerpt in posts
+timezone: Australia/Sydney # Timezone for blog posts and alike
+
+# 5. Collections
+collections:
+  posts:
+    title: Posts # Needed for Siteleaf
+    output: true
+    description: "Experiences" # The post list page content
+    # feature_text: |
+    #   Welcome to the blog
+    feature_image: "https://picsum.photos/2560/600?image=866"
+
+# 6. Jekyll collections settings
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      image: "/assets/default-social-image.png" # Default image for sharing
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post # Set the default layout for posts
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page # Set the default layout for pages
+
+# 7. Site settings
+encoding: utf-8 # Make sure the encoding is right
+lang: en-GB # Set the site language
+title: "Hobbyist Adventurer" # Site name or title, also used in jekyll-seo-tag
+logo: "/assets/logos/stick-figure.png" # Site logo, also used in jekyll-seo-tag
+description: "Mountains, treks, snow....more mountains"
+baseurl: ""
+repo: "https://github.com/velvetSymphony/blogs"
+email: "abhishek@achandrasekar.com"
+# disqus: "alembic-1" # Blog post comments, uncomment the option and set the site ID from your Disqus account
+# date_format: "%-d %B %Y" # Blog post date formatting using placeholder formatting
+# google_analytics: ""
+# google_analytics_anonymize_ip: ""
+# service_worker: false # Will turn off the service worker if set to false
+# short_name: "Al" # The web application short name, defaults to the site title
+css_inline: true # Will insert all styles into a single <style> block in the <head> element and remove the style <link> reference
+
+# 8. Site favicons & manifest icons
+favicons: # Favicons are also used in the manifest file. Syntax is 'size: path'
+#  16: '/assets/logos/logo@16px.png' # to be changed
+#  32: '/assets/logos/logo@32px.png'
+#  96: '/assets/logos/logo@96px.png'
+   16: '/assets/favicon.ico'
+
+# 9. Site navigation
+navigation_header:
+- title: Home
+  url: /
+- title: Stories
+  url: /stories/
+
+navigation_footer:
+  url: https://thehobbyistadventurer.com/
+
+# Load custom fonts from fonts.google.com etc
+#
+# TIP: Try to keep the number of urls as low to reduce the performance cost
+#      If multiple fonts can be requested in a single url opt for this
+fonts:
+  preconnect_urls:
+    - https://fonts.gstatic.com
+  font_urls:
+    - https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap
