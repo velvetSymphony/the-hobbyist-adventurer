@@ -1,34 +1,34 @@
- name: Deploy Jekyll to S3
-   on:
-     push:
-       branches:
-         - master
-   jobs:
-     build:
-       runs-on: ubuntu-latest
-       steps:
-         - name: Checkout code
-           uses: actions/checkout@v2
+on:
+  push:
+    branches:
+      - master
 
-         - name: Set up Ruby
-           uses: ruby/setup-ruby@v1
-           with:
-             ruby-version: '2.7'
+name: Deploy Jekyll to S3
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
 
-         - name: Install dependencies
-           run: |
-             gem install jekyll bundler
+      - name: Install dependencies
+        run: |
+          gem install jekyll bundler
 
-         - name: Build Jekyll site
-           run: |
-             bundle install
-             bundle exec jekyll build
+      - name: Build Jekyll site
+        run: |
+          bundle install
+          bundle exec jekyll build
 
-         - name: Sync to S3
-           env:
-             AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
-             AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
-             SOURCE_DIR: './_site' # Jekyll's default output directory
-             DESTINATION_BUCKET: 's3://the-hobbyist-adventurer-ap-southeast-2-890742572470'
-           run: |
-             aws s3 sync $SOURCE_DIR $DESTINATION_BUCKET --delete
+      - name: Sync to S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+          SOURCE_DIR: './_site'
+          DESTINATION_BUCKET: 's3://the-hobbyist-adventurer-ap-southeast-2-890742572470'
+        run: |
+          aws s3 sync $SOURCE_DIR $DESTINATION_BUCKET --delete
