@@ -32,4 +32,4 @@ jobs:
           SOURCE_DIR: './_site'
           DESTINATION_BUCKET: 's3://the-hobbyist-adventurer-ap-southeast-2-890742572470'
         run: |
-          aws s3 sync $SOURCE_DIR $DESTINATION_BUCKET --delete
+          aws s3 sync $SOURCE_DIR $DESTINATION_BUCKET --size-only
